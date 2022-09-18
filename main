@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>LAb 35 susip</title>
+</head>
+<body>
+<form method="post">
+<table id="suscalc" cellspacing="10px" border="2" cellpadding="10" width="400">
+<tr>
+<td colspan="5" id="susin"><p id="sustext" align="left">0</p></td>
+</tr>
+<tr>
+<td colspan="5" id="susout"><p id="susoutput" align="right">0</p></td>
+</tr>
+<tr>
+<td onclick="print7()">7</td>
+<td onclick="print8()">8</td>
+<td onclick="print9()">9</td>
+<td onclick="printdel()" id="susdel">DEL</td>
+<td onclick="AC()" id="susac">AC</td>
+</tr>
+<tr>
+<td onclick="print4()">4</td>
+<td onclick="print5()">5</td>
+<td onclick="print6()">6</td>
+<td onclick="printmul()">x</td>
+<td onclick="printdiv()">÷</td>
+</tr>
+<tr>
+<td onclick="print1()">1</td>
+<td onclick="print2()">2</td>
+<td onclick="print3()">3</td>
+<td onclick="printminus()">-</td>
+<td onclick="printplus()">+</td>
+</tr>
+<tr>
+<td onclick="printdot()">.</td>
+<td onclick="print0()">0</td>
+<td onclick="printroot()">√</td>
+<td onclick="printsquare()">x<sup>2</sup></td>
+<td onclick="printsubmit()">=</td>
+</tr>
+</table>
+</form>
+</body>
+<script>
+var value='"'
+function print9(){
+document.getElementById("sustext").innerHTML=value.concat("9").slice(1,value.length+1);
+value=value.concat("9")
+}
+function print8(){
+document.getElementById("sustext").innerHTML=value.concat("8").slice(1,value.length+1);
+value=value.concat("8")
+}
+function print7(){
+document.getElementById("sustext").innerHTML=value.concat("7").slice(1,value.length+1);
+value=value.concat("7")
+}
+function print6(){
+document.getElementById("sustext").innerHTML=value.concat("6").slice(1,value.length+1);
+value=value.concat("6")
+}
+function print5(){
+document.getElementById("sustext").innerHTML=value.concat("5").slice(1,value.length+1);
+value=value.concat("5")
+}
+function print4(){
+document.getElementById("sustext").innerHTML=value.concat("4").slice(1,value.length+1);
+value=value.concat("4")
+}
+function print3(){
+document.getElementById("sustext").innerHTML=value.concat("3").slice(1,value.length+1);
+value=value.concat("3")
+}
+function print2(){
+document.getElementById("sustext").innerHTML=value.concat("2").slice(1,value.length+1);
+value=value.concat("2")
+}
+function print1(){
+document.getElementById("sustext").innerHTML=value.concat("1").slice(1,value.length+1);
+value=value.concat("1")
+}
+function print0(){
+document.getElementById("sustext").innerHTML=value.concat("0").slice(1,value.length+1);
+value=value.concat("0")
+}
+function AC(){
+document.getElementById("sustext").innerHTML="0";
+document.getElementById("susoutput").innerHTML="0";
+value='"'
+}
+function printplus(){
+document.getElementById("sustext").innerHTML=value.concat("+").slice(1,value.length+1);
+value=value.concat("+")
+}
+function printminus(){
+document.getElementById("sustext").innerHTML=value.concat("-").slice(1,value.length+1);
+value=value.concat("-")
+}
+function printmul(){
+document.getElementById("sustext").innerHTML=value.concat("*").slice(1,value.length+1);
+value=value.concat("*")
+}
+function printdiv(){
+document.getElementById("sustext").innerHTML=value.concat("/").slice(1,value.length+1);
+value=value.concat("/")
+}
+function printdot(){
+document.getElementById("sustext").innerHTML=value.concat(".").slice(1,value.length+1);
+value=value.concat(".")
+}
+function printroot(){
+document.getElementById("sustext").innerHTML=value.concat("^0.5").slice(1,value.length+7);
+value=value.concat("**(1/2)")
+}
+function printsquare(){
+document.getElementById("sustext").innerHTML=value.concat("^2").slice(1,value.length+3);
+value=value.concat("**2")
+}
+function printdel(){
+document.getElementById("sustext").innerHTML=value.slice(1,value.length-1);
+value=value.slice(0,value.length-1);
+}
+function printsubmit(){
+value=value.concat('"')
+document.getElementById("sustext").innerHTML=value.slice(1,value.length-1)
+var str=value;
+var str2=eval(str);
+if(value.indexOf('*')==1 || value.indexOf('/')==1 || value.lastIndexOf('*')==value.length-2 || value.lastIndexOf('/')==value.length-2 || value.lastIndexOf('+')==value.length-2 || value.lastIndexOf('-')==value.length-2){
+document.getElementById("susoutput").innerHTML="Syntax Error";
+}
+document.getElementById("susoutput").innerHTML=eval(str2);
+if(value.lastIndexOf('/')==value.length-3 && value.lastIndexOf('0')==value.length-2){
+document.getElementById("susoutput").innerHTML="Math Error";
+}
+str3=eval(str2);
+value='"'
+value=value.concat(str3)
+}
+</script>
+<style type="text/css">
+#susac,#susdel{
+background-color:#CE8249;
+font-weight: bold;
+}
+td{
+background-color:#24262C;
+border-radius: 8px 8px 8px 8px;
+border-color: black;
+font-size:20px;
+margin:100px 5px 10px 5px;
+color:white;
+}
+#susin,#susout{
+background-color: #D6E3E7;
+color:#1E1E24;
+}
+#suscalc{
+background-color: #1E1E24;
+border-spacing: 10px 5px 10px 5px;
+}
+</style>
+</html>
+
+
+
